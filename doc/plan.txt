@@ -1,0 +1,5 @@
+1. basic stats
+- all source files/classes/
+- lines of code
+- comments
+- test classes, test cases
