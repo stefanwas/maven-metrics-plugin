@@ -1,11 +1,8 @@
 package metrics.file;
 
-import metrics.Metric;
+import metrics.Processor;
 
 import java.io.File;
 
-public interface FileProcessor {
-    void init();
-    void process(File file);
-    Metric getMetric();
+public interface FileProcessor extends Processor<File> {
 }

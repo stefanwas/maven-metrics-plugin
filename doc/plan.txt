@@ -3,3 +3,8 @@
 - lines of code
 - comments
 - test classes, test cases
+
+2. output
+- xml/json/html
+
+3. simple & extensible architecture (easy to add new metric)

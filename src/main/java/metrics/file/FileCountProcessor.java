@@ -23,7 +23,7 @@ public class FileCountProcessor implements FileProcessor {
 
     @Override
     public Metric getMetric() {
-        Metric metric = new Metric(METRIC_NAME, "");
+        Metric metric = new Metric(METRIC_NAME, null);
         metric.getNamedValues().put("total files", String.valueOf(numberOfFiles));
         return metric;
     }

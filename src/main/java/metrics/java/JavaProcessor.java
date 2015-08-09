@@ -1,9 +1,6 @@
 package metrics.java;
 
-import metrics.Metric;
+import metrics.Processor;
 
-public interface JavaProcessor {
-    void init();
-    void process(String fileContent);
-    Metric getMetric();
+public interface JavaProcessor extends Processor<String> {
 }

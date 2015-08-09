@@ -21,7 +21,7 @@ public class ClassCountProcessor implements JavaProcessor {
 
     @Override
     public Metric getMetric() {
-        Metric metric = new Metric(METRIC_NAME, "");
+        Metric metric = new Metric(METRIC_NAME, null);
 
         metric.getNamedValues().put("total classes", String.valueOf(allClasses));
         metric.getNamedValues().put("total interfaces", String.valueOf(allInterfaces));
