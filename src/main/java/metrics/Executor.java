@@ -22,7 +22,7 @@ public class Executor {
     private String targetDir;
 
     private final List<FileProcessor> fileProcessors = new ArrayList<>();
-    private final List<JavaProcessor> javaProcessors = new ArrayList<>();
+    private final List<Processor> javaProcessors = new ArrayList<>();
 
     private final List<File> sourceNodes = new LinkedList<>();
 
@@ -58,7 +58,7 @@ public class Executor {
             metrics.add(metric);
         }
 
-        for (JavaProcessor processor : this.javaProcessors) {
+        for (Processor processor : this.javaProcessors) {
             for (File node : sourceNodes) {
                 if (node.isFile()) {
                     String source = SourceFileReader.readFile(node, Charset.defaultCharset());

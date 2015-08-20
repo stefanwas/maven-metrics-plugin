@@ -1,8 +1,9 @@
 package metrics.java;
 
 import metrics.Metric;
+import metrics.Processor;
 
-public class ClassCountProcessor implements JavaProcessor {
+public class ClassCountProcessor implements Processor<String> {
 
     public static final String METRIC_NAME = "JAVA CLASS COUNTER";
 
