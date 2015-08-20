@@ -1,10 +1,11 @@
 package metrics.file;
 
 import metrics.Metric;
+import metrics.Processor;
 
 import java.io.File;
 
-public class FileCountProcessor implements FileProcessor {
+public class FileCountProcessor implements Processor<File> {
 
     public static final String METRIC_NAME = "FILE_COUNTER";
     private int numberOfFiles = 0;
