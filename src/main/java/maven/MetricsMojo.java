@@ -2,8 +2,8 @@ package maven;
 
 import io.DirectoryReader;
 import io.OutputWriter;
-import metrics.Executor;
-import metrics.Metric;
+import processors.Executor;
+import processors.Metric;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -20,7 +20,7 @@ import java.util.List;
 // 2 - run code processing
 // 3 - save results
 
-@Mojo(name = "metrics")
+@Mojo(name = "processors")
 public class MetricsMojo extends AbstractMojo {
 
     @Parameter(defaultValue="${project}", readonly=true, required=true)
@@ -52,7 +52,7 @@ public class MetricsMojo extends AbstractMojo {
 
             executor.getSourceNodes().addAll(allSourceNodes);
             executor.init();
-            List<Metric> metrics = executor.start();
+            List<Metric> metrics = executor.execute();
 
             OutputWriter writer = new OutputWriter();
             writer.saveMetrics(metrics, project.getBuild().getDirectory(), null);

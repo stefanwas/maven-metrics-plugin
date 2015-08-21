@@ -1,1 +1,1 @@
-# maven-metrics-plugin
+# maven-processors-plugin

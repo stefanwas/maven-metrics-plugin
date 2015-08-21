@@ -1,4 +1,4 @@
-package metrics.java;
+package processors.java;
 
 public class ClassSizeProcessor {
 }

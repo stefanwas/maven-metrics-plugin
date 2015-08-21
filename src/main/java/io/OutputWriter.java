@@ -1,13 +1,11 @@
 package io;
 
-import metrics.Metric;
+import processors.Metric;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.List;
 
 public class OutputWriter {
@@ -19,10 +17,10 @@ public class OutputWriter {
     public void saveMetrics(List<Metric> metrics, String targetPath, Format... format) throws IOException {
         File target = new File(targetPath);
         if (target.exists()) {
-            File metricsDir = new File(targetPath + File.separator + "metrics");
+            File metricsDir = new File(targetPath + File.separator + "processors");
             metricsDir.mkdir();
 
-            File output = new File(targetPath + File.separator + "metrics" + File.separator + "output.txt");
+            File output = new File(targetPath + File.separator + "processors" + File.separator + "output.txt");
             output.createNewFile();
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(output.getAbsoluteFile()));

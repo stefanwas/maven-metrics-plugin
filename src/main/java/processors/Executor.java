@@ -1,7 +1,8 @@
-package metrics;
+package processors;
 
-import metrics.file.FileCountProcessor;
-import metrics.java.ClassCountProcessor;
+import model.SourceMetrics;
+import processors.file.FileCountProcessor;
+import processors.java.ClassCountProcessor;
 import utils.SourceFileReader;
 
 import java.io.File;
@@ -19,8 +20,8 @@ public class Executor {
     private String srcMainDir;
     private String targetDir;
 
-    private final List<Processor> fileProcessors = new ArrayList<>();
-    private final List<Processor> javaProcessors = new ArrayList<>();
+    private final List<SourceProcessor> fileProcessors = new ArrayList<>();
+    private final List<SourceProcessor> javaProcessors = new ArrayList<>();
 
     private final List<File> sourceNodes = new LinkedList<>();
 
@@ -44,11 +45,11 @@ public class Executor {
     }
 
 
-    public List<Metric> start() throws IOException {
+    public List<SourceMetrics> execute() throws IOException {
 
-        List<Metric> metrics = new ArrayList<>();
+        List<SourceMetrics> metrics = new ArrayList<>();
 
-        for (Processor processor : this.fileProcessors) {
+        for (SourceProcessor processor : this.fileProcessors) {
             for (File node : sourceNodes) {
                 processor.process(node);
             }
