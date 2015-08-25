@@ -1,22 +1,13 @@
 package model;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
-public abstract class SourceMetrics<T> {
+public class SourceMetrics<T> {
 
     protected String name;
     protected String description;
-    protected Source<T> source;
-
-    public abstract Map<String, String> getMetricsMap();
-
-    public Source<T> getSource() {
-        return source;
-    }
-
-    public void setSource(Source<T> source) {
-        this.source = source;
-    }
+    protected final Map<String, String> details = new LinkedHashMap<>();
 
     public String getName() {
         return name;
@@ -32,5 +23,9 @@ public abstract class SourceMetrics<T> {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Map<String, String> getDetails() {
+        return this.details;
     }
 }
