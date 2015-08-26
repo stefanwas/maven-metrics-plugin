@@ -1,7 +1,7 @@
 package processors.file;
 
 import model.Source;
-import model.SourceMetrics;
+import model.SourceInfo;
 import processors.SourceProcessor;
 
 import java.io.File;
@@ -11,7 +11,7 @@ import java.util.Map;
 public class FileCountProcessor extends SourceProcessor<File> {
 
     @Override
-    public SourceMetrics<File> process(Source<File> source) {
+    public SourceInfo<File> process(Source<File> source) {
 
         FileCountMetrics fileCountMetric = new FileCountMetrics();
         fileCountMetric.setNumberOfFiles(source.getElements().size());
@@ -19,7 +19,7 @@ public class FileCountProcessor extends SourceProcessor<File> {
         return fileCountMetric;
     }
 
-    public static class FileCountMetrics extends SourceMetrics<File> {
+    public static class FileCountMetrics extends SourceInfo<File> {
 
         protected int numberOfFiles = 0;
         

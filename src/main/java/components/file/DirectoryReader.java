@@ -1,4 +1,4 @@
-package io;
+package components.file;
 
 import java.io.File;
 import java.util.LinkedList;
@@ -27,7 +27,7 @@ public class DirectoryReader {
         }
     }
 
-    public List<File> getAllNodes() {
+    public List<File> getAllSrcFiles() {
         return this.allNodes;
     }
 

@@ -1,6 +1,7 @@
 package processors;
 
-import model.SourceMetrics;
+import model.Metric;
+import model.SourceInfo;
 import processors.file.FileCountProcessor;
 import processors.java.ClassCountProcessor;
 import utils.SourceFileReader;
@@ -45,9 +46,9 @@ public class Executor {
     }
 
 
-    public List<SourceMetrics> execute() throws IOException {
+    public List<SourceInfo> execute() throws IOException {
 
-        List<SourceMetrics> metrics = new ArrayList<>();
+        List<SourceInfo> metrics = new ArrayList<>();
 
         for (SourceProcessor processor : this.fileProcessors) {
             for (File node : sourceNodes) {

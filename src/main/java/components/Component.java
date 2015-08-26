@@ -1,5 +1,6 @@
 package components;
 
-public interface Component {
-    void process(Context context);
+public abstract class Component {
+    public void init() {};
+    public abstract void process(Context context);
 }

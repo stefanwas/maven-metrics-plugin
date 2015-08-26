@@ -1,7 +1,7 @@
 package processors.java;
 
 import model.Source;
-import model.SourceMetrics;
+import model.SourceInfo;
 import processors.SourceProcessor;
 
 import java.util.HashMap;
@@ -16,7 +16,7 @@ public class ClassCountProcessor extends SourceProcessor<String> {
         return metrics;
     }
 
-    public static class JavaClassMetrics extends SourceMetrics<String> {
+    public static class JavaClassMetrics extends SourceInfo<String> {
 
         public static final String METRIC_NAME = "JAVA CLASS COUNTER";
 

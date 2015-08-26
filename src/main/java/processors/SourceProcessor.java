@@ -1,9 +1,9 @@
 package processors;
 
 import model.Source;
-import model.SourceMetrics;
+import model.SourceInfo;
 
 public abstract class SourceProcessor<T> {
     public void init() {};
-    public abstract SourceMetrics<T> process(Source<T> source);
+    public abstract SourceInfo<T> process(Source<T> source);
 }

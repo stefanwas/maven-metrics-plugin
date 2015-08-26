@@ -1,6 +1,6 @@
 package io;
 
-import processors.Metric;
+import model.Metric;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -38,8 +38,8 @@ public class OutputWriter {
 
         builder.append("Name:").append(metric.getName()).append("\n");
         builder.append("Description:").append(metric.getDescription()).append("\n");
-        for (String namedKey : metric.getNamedValues().keySet()) {
-            String namedValue = metric.getNamedValues().get(namedKey);
+        for (String namedKey : metric.getElements().keySet()) {
+            String namedValue = metric.getElements().get(namedKey);
             builder.append("\t").append(namedKey).append(":").append(namedValue).append("\n");
         }
         builder.append("-----------------\n");

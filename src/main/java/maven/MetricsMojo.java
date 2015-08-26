@@ -1,9 +1,9 @@
 package maven;
 
-import io.DirectoryReader;
+import components.file.DirectoryReader;
 import io.OutputWriter;
 import processors.Executor;
-import processors.Metric;
+import model.Metric;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -48,7 +48,7 @@ public class MetricsMojo extends AbstractMojo {
         // init directory reader
 
         try {
-            List<File> allSourceNodes = this.directoryReader.getAllNodes();
+            List<File> allSourceNodes = this.directoryReader.getAllSrcFiles();
 
             executor.getSourceNodes().addAll(allSourceNodes);
             executor.init();

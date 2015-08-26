@@ -3,7 +3,7 @@ package model;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class SourceMetrics<T> {
+public class SourceInfo {
 
     protected String name;
     protected String description;
