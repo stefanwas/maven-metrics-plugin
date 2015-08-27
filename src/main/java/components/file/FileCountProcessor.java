@@ -1,13 +1,7 @@
 package components.file;
 
 import model.Metric;
-import model.Source;
-import model.SourceInfo;
-import processors.SourceProcessor;
-
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 public class FileCountProcessor {
 

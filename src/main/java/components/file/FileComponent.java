@@ -21,12 +21,11 @@ public class FileComponent extends Component{
     @Override
     public void process(Context context) {
 
-        this.directoryReader.init(context.getSettings().getSrcRoot());
+        this.directoryReader.init(context.getSettings().getSrcRootDirs());
         List<File> srcFiles = this.directoryReader.getAllSrcFiles();
         srcFiles.forEach(this.fileCountProcessor::process);
 
         Metric metric = this.fileCountProcessor.getMetric();
-
         context.getMetrics().add(metric);
     }
 }

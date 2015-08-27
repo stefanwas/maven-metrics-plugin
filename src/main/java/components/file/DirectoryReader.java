@@ -9,12 +9,12 @@ import java.util.List;
  */
 public class DirectoryReader {
 
-    private File root = null;
+    private List<File> roots = new LinkedList<>();
     private List<File> allNodes = new LinkedList<>();
 
-    public void init(String rootDir) {
-        this.root = new File(rootDir);
-        addAllFilesToNodes(this.root);
+    public void init(List<String> rootDirs) {
+        rootDirs.stream().forEach(root -> this.roots.add(new File(root)));
+        roots.stream().forEach(this::addAllFilesToNodes);
     }
 
     private void addAllFilesToNodes(File root) {

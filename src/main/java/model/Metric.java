@@ -2,6 +2,7 @@ package model;
 
 import java.util.LinkedHashMap;
 
+//TODO change the name to something different
 public class Metric {
     private String name;
     private String description;

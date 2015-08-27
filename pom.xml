@@ -5,10 +5,10 @@
 
     <groupId>metrics</groupId>
     <artifactId>metrics-maven-plugin</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
-    <name>processors-maven-plugin</name>
+    <name>metrics-maven-plugin</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

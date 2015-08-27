@@ -2,11 +2,12 @@ package components;
 
 import model.Metric;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Context {
     private Settings settings;
-    private List<Metric> metrics;
+    private final List<Metric> metrics = new ArrayList<>();
 
     public Settings getSettings() {
         return settings;
@@ -20,7 +21,4 @@ public class Context {
         return metrics;
     }
 
-    public void setMetrics(List<Metric> metrics) {
-        this.metrics = metrics;
-    }
 }
