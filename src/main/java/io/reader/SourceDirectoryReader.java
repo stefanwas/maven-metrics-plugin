@@ -1,25 +1,20 @@
 package io.reader;
 
-import model.Source;
-
 import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SourceDirectoryReader implements SourceReader<File> {
+public class SourceDirectoryReader {
 
-    @Override
-    public Source<File> readSource(String location) {
+    public List<File> readSource(String location) {
 
         List<File> allNodes = new LinkedList<>();
 
         File root = new File(location);
         readAll(root, allNodes);
 
-        Source<File> source = new Source<>();
-        source.setElements(allNodes);
 
-        return source;
+        return allNodes;
     }
 
     private void readAll(File root, List<File> allNodes) {

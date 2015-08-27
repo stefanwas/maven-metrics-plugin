@@ -9,6 +9,7 @@ import org.apache.maven.project.MavenProject;
 import processors.Executor;
 
 //https://maven.apache.org/plugin-developers/common-bugs.html
+
 @Mojo(name = "processors")
 public class MetricsMojo extends AbstractMojo {
 
@@ -19,26 +20,17 @@ public class MetricsMojo extends AbstractMojo {
 
     public void execute() throws MojoExecutionException {
 
-        Settings settings = getProjectSettings();
+        Settings settings = prepareProjectSettings();
 
         try {
             this.executor.init(settings);
             this.executor.execute();
-
-//            List<File> allSourceNodes = this.directoryReader.getAllSrcFiles();
-//
-//            executor.getSourceNodes().addAll(allSourceNodes);
-//            executor.init();
-//            List<Metric> metrics = executor.execute();
-//
-//            OutputWriter writer = new OutputWriter();
-//            writer.saveMetrics(metrics, project.getBuild().getDirectory(), null);
         }catch (Exception e) {
             throw new MojoExecutionException("Maven Metrics Plugin exception", e);
         }
     }
 
-    private Settings getProjectSettings() {
+    private Settings prepareProjectSettings() {
         Settings settings = new Settings();
 
         settings.setSrcRootDirs(project.getCompileSourceRoots()); //src/main/java,...
