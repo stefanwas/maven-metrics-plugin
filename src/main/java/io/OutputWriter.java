@@ -15,6 +15,8 @@ public class OutputWriter {
     }
 
     public void saveMetrics(List<Metric> metrics, String targetPath, Format... format) throws IOException {
+
+        System.out.printf("saving metrics" + metrics.size());
         File target = new File(targetPath);
         if (target.exists()) {
             File metricsDir = new File(targetPath + File.separator + "processors");

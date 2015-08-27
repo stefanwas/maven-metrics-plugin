@@ -30,6 +30,8 @@ public class Executor {
 
     public void execute() throws IOException {
         this.components.stream().forEach(component -> component.process(this.context));
+
+        System.out.printf("processed components!");
         this.writer.saveMetrics(context.getMetrics(), context.getSettings().getTargetDir(), null);
     }
 
