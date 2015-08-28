@@ -10,7 +10,7 @@ import processors.Executor;
 
 //https://maven.apache.org/plugin-developers/common-bugs.html
 
-@Mojo(name = "processors")
+@Mojo(name = "metrics")
 public class MetricsMojo extends AbstractMojo {
 
     @Parameter(defaultValue="${project}", readonly=true, required=true)
