@@ -35,6 +35,23 @@
                 <artifactId>metrics-maven-plugin</artifactId>
                 <version>0.0.2-SNAPSHOT</version>
             </plugin>
+            <plugin>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-maven-plugin</artifactId>
+                <version>4.3</version>
+                <configuration>
+                    <sourceDirectory>src/main/resources/antlr4</sourceDirectory>
+                    <!--<outputDirectory>src/main/java</outputDirectory>-->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>antlr</id>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -54,6 +71,11 @@
             <artifactId>maven-plugin-annotations</artifactId>
             <version>3.4</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr</artifactId>
+            <version>3.5.2</version>
         </dependency>
     </dependencies>
 </project>
