@@ -12,12 +12,14 @@ public class FileCountProcessor implements TextFileProcessor {
 
     private int numberOfFiles = 0;
 
+    @Override
     public void process(TextFile file) {
         if (file.getFile().isFile()) {
             this.numberOfFiles++;
         }
     }
 
+    @Override
     public List<Metric> getMetrics() {
         Metric metric = new Metric(METRIC_NAME, null);
         metric.getElements().put("total files", String.valueOf(numberOfFiles));
