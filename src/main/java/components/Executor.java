@@ -1,8 +1,5 @@
-package processors;
+package components;
 
-import components.Component;
-import components.Context;
-import components.Settings;
 import components.file.FileComponent;
 import components.java.JavaComponent;
 import io.OutputWriter;

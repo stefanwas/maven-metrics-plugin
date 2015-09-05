@@ -1,4 +1,4 @@
-package components.java;
+package components.java.processors;
 
 public class ClassSizeProcessor {
 }

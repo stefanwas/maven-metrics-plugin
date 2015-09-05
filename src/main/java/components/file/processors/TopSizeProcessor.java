@@ -10,28 +10,35 @@ import java.util.List;
 public class TopSizeProcessor implements TextFileProcessor {
 
     private int topCountSize = 10;
-    private final List<TextFile> topFiles = new ArrayList<>(topCountSize);
+    private final List<TextFile> topFiles = new ArrayList<>(topCountSize + 1);
 
     @Override
     public void process(TextFile textFile) {
         if (textFile.getLines() != null) {
-            if (topFiles.isEmpty() || textFile.getLines().length > topFiles.get(topFiles.size()-1).getLines().length) {
+            if (textFile.getLines().length > getLastFileSize()) {
                 addToTopFiles(textFile);
             }
-
         }
     }
 
     private void addToTopFiles(TextFile textFile) {
-        for (int i=0; i<topFiles.size(); i++) {
-            if (textFile.getLines().length > topFiles.get(i).getLines().length) {
-                topFiles.add(i, textFile);
-                return;
+        int index = 0;
+        while (index < topFiles.size()) {
+            if ( textFile.getLines().length > topFiles.get(index).getLines().length) {
+                break;
             }
+            index++;
         }
-        if (topFiles.size() < topCountSize) {
-            topFiles.add(textFile);
+        topFiles.add(index, textFile);
+
+        // remove last file if list size exceeds the limit
+        if (topFiles.size() > topCountSize) {
+            topFiles.remove(topCountSize);
         }
+    }
+
+    private int getLastFileSize() {
+        return !this.topFiles.isEmpty() ? topFiles.get(topFiles.size()-1).getLines().length : -1;
     }
 
     @Override
