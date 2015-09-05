@@ -9,8 +9,8 @@ import java.util.List;
 
 public class TopSizeProcessor implements TextFileProcessor {
 
-    private int topCountSize = 10;
-    private final List<TextFile> topFiles = new ArrayList<>(topCountSize + 1);
+    private static final int TOP_LIST_SIZE = 10;
+    private final List<TextFile> topLineFiles = new ArrayList<>(TOP_LIST_SIZE + 1);
 
     @Override
     public void process(TextFile textFile) {
@@ -23,28 +23,28 @@ public class TopSizeProcessor implements TextFileProcessor {
 
     private void addToTopFiles(TextFile textFile) {
         int index = 0;
-        while (index < topFiles.size()) {
-            if ( textFile.getLines().length > topFiles.get(index).getLines().length) {
+        while (index < topLineFiles.size()) {
+            if ( textFile.getLines().length > topLineFiles.get(index).getLines().length) {
                 break;
             }
             index++;
         }
-        topFiles.add(index, textFile);
+        topLineFiles.add(index, textFile);
 
         // remove last file if list size exceeds the limit
-        if (topFiles.size() > topCountSize) {
-            topFiles.remove(topCountSize);
+        if (topLineFiles.size() > TOP_LIST_SIZE) {
+            topLineFiles.remove(TOP_LIST_SIZE);
         }
     }
 
     private int getLastFileSize() {
-        return !this.topFiles.isEmpty() ? topFiles.get(topFiles.size()-1).getLines().length : -1;
+        return !this.topLineFiles.isEmpty() ? topLineFiles.get(topLineFiles.size()-1).getLines().length : -1;
     }
 
     @Override
     public List<Metric> getMetrics() {
-        Metric metric = new Metric("TOP_LINE_FILES", null);
-        topFiles.forEach(file -> metric.getElements().put(file.getFile().getName(), file.getLines().length + " lines"));
+        Metric metric = new Metric("TOP_LINE_FILES", "Top 10 size files");
+        topLineFiles.forEach(file -> metric.getElements().put(file.getFile().getName(), file.getLines().length + " lines"));
         return Arrays.asList(metric);
     }
 }

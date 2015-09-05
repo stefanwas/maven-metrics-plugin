@@ -29,7 +29,7 @@ public class TextLinesDistributionProcessor implements TextFileProcessor {
         Metric fileLinesDistributionMetric = new Metric("LINES_PER_FILE_DISTRIBUTION", null);
 
         for (int i = 0; i<THRESHOLDS.length - 1; i++) {
-            fileLinesDistributionMetric.getElements().put("files less then " + THRESHOLDS[i], String.valueOf(linesPerFile[i]));
+            fileLinesDistributionMetric.getElements().put("files less then " + THRESHOLDS[i] + " lines", String.valueOf(linesPerFile[i]));
         }
 
         return Arrays.asList(fileLinesDistributionMetric);
